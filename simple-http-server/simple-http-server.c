@@ -13,7 +13,7 @@
 ///@note
 /**
 How to build
-gcc simple_http_server.c -o simple_http_server
+gcc simple-http-server.c -o simple-http-server
 
 How to test
 Open http://127.0.0.1:15000 in your webbrowser
