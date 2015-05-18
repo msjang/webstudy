@@ -7,13 +7,13 @@
 
 ## Prepare HTTPS server, private key, certificate
 
-run the following script
+Run the following script.
 
 ```
 $ ./build-mongoose-webserver.sh
 ```
 
-then, the followings are created.
+Then, it will clone mongoose code and build mongoose webserver and copy create several files.
 
 ```
 .
@@ -22,9 +22,9 @@ then, the followings are created.
 ├── mongoose
 └── webserver
     ├── cert.pem          # certificate and private key for mongoose
-    │                          ,copied from mongoose example
+    │                          ,copied from mongoose web_server example
     ├── private-key.pem   # private key for wireshark to decrypt packets
-    │                          ,derived from mongoose example
+    │                          ,derived from mongoose web_server example
     └── web_server        # mongoose webserver binary
 ```
 
@@ -34,8 +34,8 @@ then, the followings are created.
 - Goto SSL setting Edit > Perferences > Protocols > SSL
 - Add 'private-key.pem' to RSA keys list
 
-![wireshark-sslkey-setting-01](wireshark-sslkey-setting-01.png)
-![wireshark-sslkey-setting-02](wireshark-sslkey-setting-02.png)
+![wireshark-sslkey-setting-01](doc/wireshark-sslkey-setting-01.png)
+![wireshark-sslkey-setting-02](doc/wireshark-sslkey-setting-02.png)
 
 # Run mongoose HTTPS Server
 
@@ -50,8 +50,8 @@ Mongoose web server v.5.6 serving [/data/work/webstudy/https-decrypt/webserver/w
 
 Start to capture packets on the HTTPS port above; 8043
 
-![wireshark-pkt-capture-01](wireshark-pkt-capture-01.png)
-![wireshark-pkt-capture-02](wireshark-pkt-capture-02.png)
+![wireshark-pkt-capture-01](doc/wireshark-pkt-capture-01.png)
+![wireshark-pkt-capture-02](doc/wireshark-pkt-capture-02.png)
 
 ## Capture HTTPS packets
 
@@ -165,24 +165,24 @@ Saving to: `STDOUT'
 
 ## Decrypt packets
 
-![mongoose-openssl-pkts-decrypted-01](mongoose-openssl-pkts-decrypted-01.png)
-![mongoose-openssl-pkts-decrypted-02](mongoose-openssl-pkts-decrypted-02.png)
+![mongoose-openssl-pkts-decrypted-01](doc/mongoose-openssl-pkts-decrypted-01.png)
+![mongoose-openssl-pkts-decrypted-02](doc/mongoose-openssl-pkts-decrypted-02.png)
 
 ## Decrypt Faiulre
 
 under-investigating
 
-![mongoose-firefox-malformed-pkt-00-setting](mongoose-firefox-malformed-pkt-00-setting.png)
-![mongoose-firefox-malformed-pkt-01](mongoose-firefox-malformed-pkt-01.png)
-![mongoose-firefox-malformed-pkt-02](mongoose-firefox-malformed-pkt-02.png)
-![mongoose-firefox-malformed-pkt-03](mongoose-firefox-malformed-pkt-03.png)
+![mongoose-firefox-malformed-pkt-00-setting](doc/mongoose-firefox-malformed-pkt-00-setting.png)
+![mongoose-firefox-malformed-pkt-01](doc/mongoose-firefox-malformed-pkt-01.png)
+![mongoose-firefox-malformed-pkt-02](doc/mongoose-firefox-malformed-pkt-02.png)
+![mongoose-firefox-malformed-pkt-03](doc/mongoose-firefox-malformed-pkt-03.png)
 
 ## Appendix
 
 * Captured HTTPS packets
-    * [mongoose-https-serv-openssl-client-20150518.pcap](mongoose-https-serv-openssl-client-20150518.pcap)
+    * [mongoose-https-serv-openssl-client-20150518.pcap](doc/mongoose-https-serv-openssl-client-20150518.pcap)
 * Captured HTTPS packets, Fail to decrypt
-    * [mongoose-https-serv-firefix-client-20150518.pcap](mongoose-https-serv-firefix-client-20150518.pcap)
+    * [mongoose-https-serv-firefix-client-20150518.pcap](doc/mongoose-https-serv-firefix-client-20150518.pcap)
 
 
 ## Reference
