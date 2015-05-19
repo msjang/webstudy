@@ -163,27 +163,49 @@ Saving to: `STDOUT'
 2015-05-18 16:21:47 (15.2 MB/s) - written to stdout [719]
 ```
 
-## Decrypt packets
+## Decrypt packets between Firefox and Mongoose
 
-![mongoose-openssl-pkts-decrypted-01](doc/mongoose-openssl-pkts-decrypted-01.png)
-![mongoose-openssl-pkts-decrypted-02](doc/mongoose-openssl-pkts-decrypted-02.png)
+* Open `about:config`
+* Type `ssl3`, and change cipher options to false without aes_265_sha
+* Type `tls.version`, and change tls.version.max to 2
 
-## Decrypt Faiulre
+![firefox-config-chipher](doc/firefox-config-chipher.png)
+![firefox-config-tls-version](doc/firefox-config-tls-version.png)
 
-under-investigating
 
-![mongoose-firefox-malformed-pkt-00-setting](doc/mongoose-firefox-malformed-pkt-00-setting.png)
-![mongoose-firefox-malformed-pkt-01](doc/mongoose-firefox-malformed-pkt-01.png)
-![mongoose-firefox-malformed-pkt-02](doc/mongoose-firefox-malformed-pkt-02.png)
-![mongoose-firefox-malformed-pkt-03](doc/mongoose-firefox-malformed-pkt-03.png)
+
+* Run mongoose HTTPS server on port 8043
+* Capture `loopback interface on port 8043`
+* Open `https://127.0.0.1:8043`
+
+![mongoose-firefox-conf-mod-pkts-decrypted-01](doc/mongoose-firefox-conf-mod-pkts-decrypted-01.png)
+
+![mongoose-firefox-conf-mod-pkts-decrypted-02](doc/mongoose-firefox-conf-mod-pkts-decrypted-02.png)
+
+Severak TLS extensions are shown.
+
+![mongoose-firefox-conf-mod-pkts-decrypted-03](doc/mongoose-firefox-conf-mod-pkts-decrypted-03.png)
+
+Decrypted TLS packets are shown.
 
 ## Appendix
 
 * Captured HTTPS packets
     * [mongoose-https-serv-openssl-client-20150518.pcap](doc/mongoose-https-serv-openssl-client-20150518.pcap)
+* Captured HTTPS packets, Success to decrypt
+    * [mongoose-https-serv-firefox-mod-client-20150519.pcap](doc/mongoose-https-serv-firefox-mod-client-20150519.pcap)
 * Captured HTTPS packets, Fail to decrypt
-    * [mongoose-https-serv-firefix-client-20150518.pcap](doc/mongoose-https-serv-firefix-client-20150518.pcap)
+    * [mongoose-https-serv-firefox-client-20150518.pcap](doc/mongoose-https-serv-firefox-client-20150518.pcap)
 
+
+### Decrypt Faiulre
+
+Packets between Firefox and mongoose HTTPS server cannot be decrypted without modification on Firefox ssl cipher options.
+
+![mongoose-firefox-malformed-pkt-00-setting](doc/mongoose-firefox-malformed-pkt-00-setting.png)
+![mongoose-firefox-malformed-pkt-01](doc/mongoose-firefox-malformed-pkt-01.png)
+![mongoose-firefox-malformed-pkt-02](doc/mongoose-firefox-malformed-pkt-02.png)
+![mongoose-firefox-malformed-pkt-03](doc/mongoose-firefox-malformed-pkt-03.png)
 
 ## Reference
 
